@@ -11,7 +11,7 @@ export const globalConfig = {
 };
 
 export const apiConfig = {
-  apiKey: "15d2ea6d0dc1d476efbca3eba2b9bbfb",
+  apiKey: "158b32dbb3ad81297e88e22638a1bb1b",
   langIso: "es-ES",
   baseUrl: "https://api.themoviedb.org/3/",
   posterBaseUrl: "http://image.tmdb.org/t/p",

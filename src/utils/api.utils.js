@@ -4,10 +4,12 @@ export function getMoviePosterUrl(path, width = 400) {
   return `${apiConfig.posterBaseUrl}/w${width}/${path}`;
 }
 
+// Devuelven una url
 export function getMovieBackdropUrl(path) {
   return `${apiConfig.backdropBaseUrl}${path}`;
 }
 
+// Listado -> Varias
 export function getMovieListUrl(movieListType, page = 1) {
   let movieListUrl = apiConfig.baseUrl;
   movieListUrl += `movie/${movieListType}`;
@@ -17,6 +19,7 @@ export function getMovieListUrl(movieListType, page = 1) {
   return movieListUrl;
 }
 
+// Get the details of the movie -> 1 movie
 export function getMovieDetailsUrl(movieId) {
   let movieDetailsUrl = apiConfig.baseUrl;
   movieDetailsUrl += `movie/${movieId}`;
@@ -43,7 +46,7 @@ export async function fetchMoviesData(url) {
 
   if (data?.success === false)
     throw new Error(
-      `Error: ${data?.status_message ?? "something whent wrong"}`
+      `Error: ${data?.status_message ?? "Something went wrong"}`
     );
 
   return data;
