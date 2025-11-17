@@ -39,6 +39,7 @@
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -55,6 +56,7 @@
 
   .movie-overview {
     -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 }
 
@@ -64,12 +66,13 @@
   .movie-title {
     @extend .mb-1;
   }
-
   .movie-overview {
     @extend .mb-0;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
-}
+  }
+
 
 .movie-details {
   color: white;
