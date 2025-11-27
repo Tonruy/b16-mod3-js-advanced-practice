@@ -1,3 +1,7 @@
+#app {
+  margin-top: 120px;
+}
+
 .movie-toolbar-wrapper {
   @extend .py-2;
   background-color: #eee;
@@ -51,13 +55,18 @@
   @extend .col-sm-6;
 
   .movie-poster {
-    height: 400px;
+    height: auto;
   }
 
   .movie-overview {
     -webkit-line-clamp: 4;
     line-clamp: 4;
   }
+  
+}
+
+.movie-grid .movie-rating {
+  margin-bottom: 4px;
 }
 
 .movie-list {

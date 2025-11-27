@@ -32,3 +32,15 @@ export function createColElement(numColums) {
   element.className = `col-${numColums}`;
   return element;
 }
+
+
+export function releaseDateMovie(movie) {
+  let fullYear = movie.release_date.slice(0, 4);
+  return fullYear;
+}
+
+export function ratingMovie(movie){
+  //toFixed() metodo que determina el número de decimáles que queremos que aparezca
+const rating = movie.vote_average.toFixed(1)
+return rating
+}
