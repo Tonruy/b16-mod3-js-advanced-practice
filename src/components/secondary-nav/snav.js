@@ -1,54 +1,46 @@
-import { renderingMoviesGrid } from "../movie-list/grid-view/grid-list";
-import { renderingMoviesRow } from "../movie-list/row-view/row-list";
-import { eventListeners } from "../../utils/events";
+import { renderingMoviesGrid } from "../movie-list/grid-list";
+import { renderingMoviesRow } from "../movie-list/row-list";
 
-export function secondaryNav(){
- let currentView = "mainPage";
- const app = document.getElementById("app");
- const secondaryNav = document.createElement('div');
- secondaryNav.classList.add('nav-container')
-app.appendChild(secondaryNav);
+export function secondaryNav() {
 
- if (currentView ==="mainPage"){
+  const app = document.getElementById("app");
+  const secondaryNav = document.createElement("div");
+  secondaryNav.classList.add("nav-container");
 
+  const innerContainer = document.createElement("div");
+  innerContainer.classList.add("container");
 
+  //Creating of buttons
+  //Grid
+  const gridBtn = document.createElement("button");
+  gridBtn.classList.add("btn");
+  const gridImg = document.createElement("img");
+  gridImg.src = "/grid-layout.svg";
+  gridImg.classList.add("btn-icon");
+  gridBtn.appendChild(gridImg);
 
+  const listBtn = document.createElement("button");
+  listBtn.classList.add("btn");
+  const listImg = document.createElement("img");
+  listImg.src = "/list-layout.svg";
+  listImg.classList.add("btn-icon");
+  listBtn.appendChild(listImg);
 
- }
+  //Appends
+  innerContainer.appendChild(gridBtn);
+  innerContainer.appendChild(listBtn);
+  secondaryNav.appendChild(innerContainer);
 
-}
+  //Events
+  gridBtn.addEventListener("click", () => {
+    renderingMoviesGrid();
+  });
 
+  listBtn.addEventListener("click", () => {
+    renderingMoviesRow();
+  });
 
+  //Final append post buttons and events
+  app.appendChild(secondaryNav);
+	}
 
-
-// export function secondNav(){
-// const app = document.getElementById("app");
-// app.innerHTML = `
-// <nav class="nav-container">
-// 	<button id="grid-toggle" class="btn">
-// 		<img src="/grid-layout.svg" class="btn-icon" alt="grid icon"></button>
-// 	<button id="list-toggle" class="btn">
-// 		<img src="/list-layout.svg" class="btn-icon" alt="list icon"></button>
-// </nav>	
-// <div id="content"></div>
-// `
-// toggleLayoutLoading();
-// }
-
-
-
-
-
-
-
-// export let currentView = "grid";
-
-// export function toggleLayoutLoading(currentView){
-// 	if (currentView === "grid"){
-// 		renderingMoviesGrid();
-// 	}
-// 	else {
-// 		currentView === "list";
-// 		renderingMoviesRow();
-// 	}
-// }

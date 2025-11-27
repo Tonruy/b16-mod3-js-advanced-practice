@@ -1,7 +1,14 @@
 .nav-container {
-	position: absolute;
-	top: 72px;
-	padding-left: 50px;
-	width: 100%;
-	background-color: rgb(237, 237, 237)
+  background-color: rgb(237, 237, 237);
+  top: 72px;
+  position: sticky;
+  z-index: 1;
+  
+
+}
+
+.nav-container .container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }

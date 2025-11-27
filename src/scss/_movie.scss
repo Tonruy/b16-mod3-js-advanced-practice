@@ -1,5 +1,5 @@
 #app {
-  margin-top: 120px;
+  margin-top: 72px;
 }
 
 .movie-toolbar-wrapper {
@@ -10,6 +10,11 @@
 
 #movie-list-container {
   @extend .mt-5;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1320px;
 }
 
 .movie-grid,

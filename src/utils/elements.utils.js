@@ -44,3 +44,23 @@ export function ratingMovie(movie){
 const rating = movie.vote_average.toFixed(1)
 return rating
 }
+
+/**
+ * Creation and wipe of container for movies list 
+ * @returns container
+ */
+export function moviesContainer (){
+  let containerCheck = document.getElementById("movie-list-container")
+  if ( containerCheck !== null) {
+    containerCheck.innerHTML = "";
+    return containerCheck;
+  }
+  else {
+	const moviesContent = document.createElement("div");
+	moviesContent.classList = "";
+	moviesContent.id = "movie-list-container";
+	moviesContent.innerHTML= "";
+
+  return moviesContent;
+}
+}

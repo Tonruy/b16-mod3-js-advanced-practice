@@ -1,7 +1,9 @@
-import { MovieListType } from "../../../config";
-import { getMoviePosterUrl } from "../../../utils/api.utils";
-import { ratingMovie, releaseDateMovie } from "../../../utils/elements.utils";
-import { getMovieListData } from "../movie-list";
+
+import { MovieListType } from "../../config";
+import { getMoviePosterUrl } from "../../utils/api.utils.js";
+import {ratingMovie, releaseDateMovie} from "../../utils/elements.utils.js";
+import { getMovieListData } from "./movie-list";
+import { moviesContainer } from "../../utils/elements.utils.js";
 
 export function movieRowCard(movie) {
 const movieCard = document.createElement("div");
@@ -21,17 +23,17 @@ return movieCard
 
 export async function renderingMoviesRow(movieListType = MovieListType.popular){
 	const movies = await getMovieListData(movieListType);
-	const content = document.getElementById("content");
-	content.classList.add("container")
-	content.innerHTML= "";
-	const listContainer = document.createElement("div");
-		listContainer.id= "movie-list-container";
-		listContainer.classList.add("gx-3", "p-2","align-items-stretch");
+	const app = document.getElementById("app");
+	
+	
+	const container = moviesContainer();
+		container.id= "movie-list-container";
+		container.classList.add("gx-3", "p-2","align-items-stretch");
 		
 		movies.forEach( movie => {
-		let card = movieRowCard(movie);
-		listContainer.appendChild(card);
-		 content.appendChild(listContainer)
-
-	});
+			let card = movieRowCard(movie);
+			container.appendChild(card);
+			
+		})
+		app.appendChild(container);
 }

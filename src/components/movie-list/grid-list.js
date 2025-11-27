@@ -1,8 +1,10 @@
-import { getMoviePosterUrl } from "../../../utils/api.utils";
-import { releaseDateMovie } from "../../../utils/elements.utils";
-import { ratingMovie } from "../../../utils/elements.utils";
-import { getMovieListData } from "../movie-list";
-import { MovieListType } from "../../../config";
+
+import { releaseDateMovie } from "../../utils/elements.utils.js";
+import { getMoviePosterUrl } from "../../utils/api.utils.js";
+import {ratingMovie} from "../../utils/elements.utils.js";
+import { getMovieListData } from "./movie-list";
+import { MovieListType } from "../../config";
+import { moviesContainer } from "../../utils/elements.utils.js";
 	
 export function movieGridCard (movie){
 
@@ -18,22 +20,19 @@ export function movieGridCard (movie){
 }
 
 export async function renderingMoviesGrid(movieListType = MovieListType.popular){
-
 	const movies = await getMovieListData(movieListType);
+	const app = document.getElementById("app");
 	//console.log(movies);
-	const content = document.getElementById("content");
-	content.classList.add("container");
-	content.innerHTML= "";
 
-	const listContainer = document.createElement("div");
-	listContainer.id= "movie-list-container";
+	const container = moviesContainer();
+	container.id = "movie-list-container";
 	// row = grid, gx-3 espacio horizontal entre columnas, p-2: padding 2; h-100: height 100%
-	listContainer.classList.add("row", "gx-3", "p-2", "h-100");
+	container.classList.add("row", "gx-3", "p-2", "h-100");
 	
 	movies.forEach( movie => {
-	let card = movieGridCard(movie);
- 	listContainer.appendChild(card);
-	 content.appendChild(listContainer)
+		let card = movieGridCard(movie);
+		container.appendChild(card);
 	}
-	)
+)
+app.appendChild(container);
 }
