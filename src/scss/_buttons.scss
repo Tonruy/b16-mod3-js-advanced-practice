@@ -1,6 +1,9 @@
 .btn {
   &.btn-icon {
     border: none;
+    width: 20px;
+    height: 20px;
+
 
     &:active {
       opacity: 50%;

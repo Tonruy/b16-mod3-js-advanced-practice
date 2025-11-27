@@ -17,13 +17,13 @@ export function movieGridCard (movie){
 	return movieCard;
 }
 
-export async function renderingMoviesCol(movieListType = MovieListType.popular){
+export async function renderingMoviesGrid(movieListType = MovieListType.popular){
 
 	const movies = await getMovieListData(movieListType);
-	console.log(movies);
-	const app = document.getElementById("app");
-	app.classList.add("container");
-	app.innerHTML= "";
+	//console.log(movies);
+	const content = document.getElementById("content");
+	content.classList.add("container");
+	content.innerHTML= "";
 
 	const listContainer = document.createElement("div");
 	listContainer.id= "movie-list-container";
@@ -33,7 +33,7 @@ export async function renderingMoviesCol(movieListType = MovieListType.popular){
 	movies.forEach( movie => {
 	let card = movieGridCard(movie);
  	listContainer.appendChild(card);
-	 app.appendChild(listContainer)
+	 content.appendChild(listContainer)
 	}
 	)
 }

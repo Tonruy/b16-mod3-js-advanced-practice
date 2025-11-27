@@ -28,8 +28,6 @@
   }
 
   .movie-title {
-    @extend .my-2;
-
     font-size: $font-size-base * 1.25;
     font-weight: $font-weight-bold;
     width: 100%;
@@ -56,6 +54,8 @@
 
   .movie-poster {
     height: auto;
+    // min height cos there are images that are low-scale 
+    min-height: 462px;
   }
 
   .movie-overview {
@@ -70,7 +70,7 @@
 }
 
 .movie-list {
-  @extend .my-2;
+  @extend .my-3;
 
   .movie-title {
     @extend .mb-1;
@@ -81,6 +81,13 @@
     line-clamp: 2;
   }
   }
+
+  .movie-poster {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+}
 
 
 .movie-details {
@@ -121,4 +128,14 @@
 
 #search-movie-input {
   border: none;
+}
+
+//Deleting margin from title so both layouts has it independent for better view
+.movie-grid .movie-title {
+  margin: 0.5rem 0 !important;
+}
+
+
+.movie-list .movie-title {
+  margin: 0 !important;
 }
