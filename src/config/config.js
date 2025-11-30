@@ -5,6 +5,14 @@ export const MovieListType = Object.freeze({
   upcoming: "upcoming",
 });
 
+//New cost just for showing up better names in select
+export const displayNames = {
+  nowPlaying: "En cartelera",
+  popular: "Populares",
+  topRated: "Mejor valoradas",
+  upcoming: "Próximamente"
+}
+
 export const globalConfig = {
   notAvailableValue: "(No disponible)",
   defaultMovieListType: MovieListType.nowPlaying,
