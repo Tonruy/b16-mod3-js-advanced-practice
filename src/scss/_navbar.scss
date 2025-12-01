@@ -16,6 +16,7 @@
 .select-categories {
   // ml auto : makes take the complete space of the div for taking all the space.
   margin-left: auto;
+  
 }
 
 .select-info {
@@ -24,5 +25,10 @@
 }
 
 .select-toggle{
-  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 1rem;
+  color: #333;
 }
+
