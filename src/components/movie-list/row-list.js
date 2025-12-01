@@ -1,4 +1,3 @@
-import { MovieListType } from "../../config";
 import { getMoviePosterUrl } from "../../utils/api.utils.js";
 import { ratingMovie, releaseDateMovie } from "../../utils/elements.utils.js";
 import { moviesContainer } from "../../utils/elements.utils.js";
@@ -17,11 +16,19 @@ export function movieRowCard(movie) {
     </div>
 
     <div>
-      <h3 class= movie-title>${movie.title}</h3>
+      <h3 class="movie-title">${movie.title}</h3>
       <p>Rating: ${ratingMovie(movie)} | ${releaseDateMovie(movie)}</p>
       <p class="movie-overview">${movie.overview}</p>
     </div>
   `;
+
+  movieCard.addEventListener("click", () => {
+    const e = new CustomEvent("movieSelected", {
+      detail: { id : movie.id }
+    });
+    document.dispatchEvent(e);
+  });
+
   return movieCard;
 }
 

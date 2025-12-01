@@ -144,3 +144,17 @@
 .movie-list .movie-title {
   margin: 0 !important;
 }
+
+.movie-details .movie-poster {
+  width: auto;
+  height: 100%;
+  max-height: 400px;
+}
+
+// New class for deatil view 
+.movie-poster-detail {
+  width: 400px;
+  height: auto;
+  border-radius: $border-radius;
+  object-fit: cover;
+}

@@ -1,13 +1,14 @@
 import { fetchMoviesData, getMovieListUrl } from "../../utils/api.utils";
-import { secondaryNav } from "../secondary-nav/snav.js";
+import { renderSecondaryNav } from "../secondary-nav/snav.js";
 import { renderingMoviesGrid } from "./grid-list.js";
 import { renderingMoviesRow } from "./row-list.js";
+import { renderMovieDetail } from "../movie-detail/movie-detail.js";
 
 // let cos its gonna change. Main page values:
 let currentCategory = "popular";
 let currentView = "grid";
 
-// Listener of the event before changing :
+// Listener of the event before changing select :
 document.addEventListener("categoryChange", (e) => {
   currentCategory = e.detail.category;
   updateMovies();
@@ -36,15 +37,23 @@ export async function updateMovies() {
 	}
 }
 
+document.addEventListener("movieSelected", (e) => {
+  const movieId = e.detail.id;
+  renderMovieDetail(movieId);
+});
 
+document.addEventListener("backToList", () => {
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+  renderSecondaryNav({ page: "main"});
+  updateMovies();
+});
 
 //RENDER: 
 // First adding Nav
-secondaryNav();
+renderSecondaryNav( {page: "main"});
 // Rendering Movies : 
 updateMovies();
-
-
 
 
 

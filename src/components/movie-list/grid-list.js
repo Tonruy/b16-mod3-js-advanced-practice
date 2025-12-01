@@ -1,7 +1,6 @@
 import { releaseDateMovie } from "../../utils/elements.utils.js";
 import { getMoviePosterUrl } from "../../utils/api.utils.js";
 import { ratingMovie } from "../../utils/elements.utils.js";
-import { MovieListType } from "../../config";
 import { moviesContainer } from "../../utils/elements.utils.js";
 
 export function movieGridCard(movie) {
@@ -13,6 +12,15 @@ export function movieGridCard(movie) {
     <p class="movie-rating">Rating: ${ratingMovie(movie)} | ${releaseDateMovie(movie)}</p>
     <p class="movie-overview">${movie.overview}</p>
   `;
+
+  movieCard.addEventListener("click", () => {
+    //movie.id is the number of the page to be loaded // Same for both Cards
+    const e = new CustomEvent("movieSelected", {
+      detail: { id : movie.id }
+    });
+    document.dispatchEvent(e);
+  });
+
   return movieCard;
 }
 
@@ -22,7 +30,7 @@ export function renderingMoviesGrid(movies) {
   const app = document.getElementById("app");
 
   const container = moviesContainer();
-  // row = grid, gx-3 espacio horizontal entre columnas, p-2 padding 2; h-100: height 100%
+  // row = grid, gx-3 espacio horizontal between cols, p-2 padding 2; h-100: height 100%
   container.classList.add("row", "gx-3", "p-2", "h-100");
 
   movies.forEach(movie => {
