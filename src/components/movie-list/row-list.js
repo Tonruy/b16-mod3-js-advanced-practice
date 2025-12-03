@@ -1,10 +1,12 @@
 import { getMoviePosterUrl } from "../../utils/api.utils.js";
 import { ratingMovie, releaseDateMovie } from "../../utils/elements.utils.js";
 import { moviesContainer } from "../../utils/elements.utils.js";
+import { renderMovieDetail } from "../movie-detail/movie-detail.js";
 
 
 export function movieRowCard(movie) {
   const movieCard = document.createElement("div");
+  movieCard.id = movie.id;
   movieCard.classList.add("movie-list", "d-flex", "gap-3", "h-100");
   movieCard.innerHTML = `
     <div class="col-3 col-sm-2 h-100 w-auto position-relative">
@@ -17,14 +19,7 @@ export function movieRowCard(movie) {
       <p class="movie-overview">${movie.overview}</p>
     </div>
   `;
-
-  movieCard.addEventListener("click", () => {
-    const e = new CustomEvent("movieSelected", {
-      detail: { id : movie.id }
-    });
-    document.dispatchEvent(e);
-  });
-
+  movieCard.addEventListener("click", () => renderMovieDetail(movieCard.id));
   return movieCard;
 }
 

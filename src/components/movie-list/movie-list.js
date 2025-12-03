@@ -30,7 +30,6 @@ export async function updateMovies() {
   if (currentView == "grid") {
     renderingMoviesGrid(data.results);
 		//data ( const data = await response.json gives back an array filled by objects so we need data.result)
-		//console.log("datos:", data);
 	}
 	else {
 		renderingMoviesRow(data.results)

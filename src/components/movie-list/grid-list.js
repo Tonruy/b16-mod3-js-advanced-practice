@@ -2,25 +2,20 @@ import { releaseDateMovie } from "../../utils/elements.utils.js";
 import { getMoviePosterUrl } from "../../utils/api.utils.js";
 import { ratingMovie } from "../../utils/elements.utils.js";
 import { moviesContainer } from "../../utils/elements.utils.js";
+import { renderMovieDetail } from "../movie-detail/movie-detail.js";
 
 export function movieGridCard(movie) {
   const movieCard = document.createElement("div");
+  movieCard.id = movie.id;
   movieCard.classList.add("movie-grid");
   movieCard.innerHTML = `
-    <img class="movie-poster" src="${getMoviePosterUrl(movie.poster_path)}" alt="Portrait Movie">
+   <img class="movie-poster" src="${getMoviePosterUrl(movie.poster_path)}" alt="Portrait Movie ">
     <h3 class="movie-title">${movie.title}</h3>
     <p class="movie-rating">Rating: ${ratingMovie(movie)} | ${releaseDateMovie(movie)}</p>
     <p class="movie-overview">${movie.overview}</p>
   `;
 
-  movieCard.addEventListener("click", () => {
-    //movie.id is the number of the page to be loaded // Same for both Cards
-    const e = new CustomEvent("movieSelected", {
-      detail: { id : movie.id }
-    });
-    document.dispatchEvent(e);
-  });
-
+movieCard.addEventListener("click", () => renderMovieDetail(movieCard.id));
   return movieCard;
 }
 

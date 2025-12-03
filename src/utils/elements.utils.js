@@ -64,3 +64,4 @@ export function moviesContainer (){
   return moviesContent;
 }
 }
+
