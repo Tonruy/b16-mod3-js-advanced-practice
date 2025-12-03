@@ -2,11 +2,7 @@ import { getMoviePosterUrl } from "../../utils/api.utils.js";
 import { ratingMovie, releaseDateMovie } from "../../utils/elements.utils.js";
 import { moviesContainer } from "../../utils/elements.utils.js";
 
-/**
- * Creation card for List Layout
- * @param {*} movie
- * @returns movieCard
- */
+
 export function movieRowCard(movie) {
   const movieCard = document.createElement("div");
   movieCard.classList.add("movie-list", "d-flex", "gap-3", "h-100");
@@ -32,10 +28,7 @@ export function movieRowCard(movie) {
   return movieCard;
 }
 
-/**
- * List Layout
- * @param {*} movies
- */
+
 export function renderingMoviesRow(movies) {
   const app = document.getElementById("app");
   const container = moviesContainer();

@@ -18,8 +18,7 @@
 }
 
 .movie-grid,
-.movie-list,
-.movie-details {
+.movie-list {
   .movie-poster {
     width: 100%;
     overflow: hidden;
@@ -67,7 +66,6 @@
     -webkit-line-clamp: 4;
     line-clamp: 4;
   }
-  
 }
 
 .movie-grid .movie-rating {
@@ -85,15 +83,14 @@
     -webkit-line-clamp: 2;
     line-clamp: 2;
   }
-  }
+}
 
-  .movie-poster {
+.movie-poster {
   width: 80px;
   height: 120px;
   object-fit: cover;
   border-radius: 6px;
 }
-
 
 .movie-details {
   color: white;
@@ -118,6 +115,11 @@
 
   .movie-overview {
     font-size: 1.3rem;
+    margin: 6px 0 30px;
+    line-height: 1.5;
+    display: block;
+    overflow: visible;
+    white-space: normal;
 
     &-title {
       font-size: 1.5rem;
@@ -140,7 +142,6 @@
   margin: 0.5rem 0 !important;
 }
 
-
 .movie-list .movie-title {
   margin: 0 !important;
 }
@@ -151,7 +152,7 @@
   max-height: 400px;
 }
 
-// New class for deatil view 
+// New class for deatil view (emphasis appeared cos line-clamp)
 .movie-poster-detail {
   width: 400px;
   height: auto;

@@ -30,7 +30,7 @@ export function renderingMoviesGrid(movies) {
   const app = document.getElementById("app");
 
   const container = moviesContainer();
-  // row = grid, gx-3 espacio horizontal between cols, p-2 padding 2; h-100: height 100%
+  // row = grid, gx-3 horizontal space between cols, p-2 padding 2; h-100: height 100%
   container.classList.add("row", "gx-3", "p-2", "h-100");
 
   movies.forEach(movie => {
